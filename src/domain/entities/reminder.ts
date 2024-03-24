@@ -1,8 +1,13 @@
 import { DeliveryMethods } from "./enums/delivery-methods";
 import { ReminderFrequency } from "./enums/reminder-frequency";
 
+export type AlarmTime = {
+  hour: number;
+  minute: number;
+};
+
 export type ReminderProps = {
-  time: Date;
+  time: AlarmTime;
   frequency: ReminderFrequency;
   active: Boolean;
   deliveredBy: DeliveryMethods[];
@@ -16,15 +21,15 @@ export class Reminder {
 
   /////
 
-  updateTime(param: Date) {
+  updateTime(param: AlarmTime) {
     this.time = param;
   }
 
-  private set time(param: Date) {
+  private set time(param: AlarmTime) {
     this.props.time = param;
   }
 
-  get time(): Date {
+  get time(): AlarmTime {
     return this.props.time;
   }
   /////
