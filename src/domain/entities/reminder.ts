@@ -13,4 +13,62 @@ export class Reminder {
   constructor(props: ReminderProps) {
     this.props = { ...props };
   }
+
+  /////
+
+  updateTime(param: Date) {
+    this.time = param;
+  }
+
+  private set time(param: Date) {
+    this.props.time = param;
+  }
+
+  get time(): Date {
+    return this.props.time;
+  }
+  /////
+
+  updateFrequency(param: ReminderFrequency) {
+    this.frequency = param;
+  }
+
+  private set frequency(param: ReminderFrequency) {
+    this.props.frequency = param;
+  }
+
+  get frequency(): ReminderFrequency {
+    return this.props.frequency;
+  }
+  /////
+
+  deactivateAlarm(param: Boolean) {
+    this.active = false;
+  }
+
+  activateAlarm(param: Boolean) {
+    this.active = true;
+  }
+
+  private set active(param: Boolean) {
+    this.props.active = param;
+  }
+
+  get active(): Boolean {
+    return this.props.active;
+  }
+
+  //////
+
+  updateDeliveryMethods(param: DeliveryMethods[]) {
+    this.deliveredBy = param;
+  }
+
+  private set deliveredBy(param: DeliveryMethods[]) {
+    this.props.deliveredBy = param;
+  }
+
+  get deliveredBy(): DeliveryMethods[] {
+    return this.props.deliveredBy;
+  }
 }
