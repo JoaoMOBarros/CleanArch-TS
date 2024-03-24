@@ -1,9 +1,10 @@
 import { PlansType } from "./enums/plans-type";
+import { Reminder } from "./reminder";
 
 export type UserProps = {
   name: string;
   email: string;
-  reminders?: string[];
+  reminders?: Reminder[];
   plan: PlansType;
 };
 
@@ -55,15 +56,15 @@ export class User {
 
   /////
 
-  updateReminders(param: string[]) {
+  updateReminders(param: Reminder[]) {
     this.reminders = param;
   }
 
-  private set reminders(param: string[]) {
+  private set reminders(param: Reminder[]) {
     this.props.reminders = param;
   }
 
-  get reminders(): string[] {
+  get reminders(): Reminder[] {
     return this.props.reminders;
   }
 }
